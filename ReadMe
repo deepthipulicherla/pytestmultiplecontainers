@@ -1,0 +1,12 @@
+What Are Markers in Pytest?
+Markers in Pytest are labels or annotations you attach to test functions to categorize, filter, or modify their behavior. They help you:
+
+Group tests logically (e.g., @pytest.mark.regression)
+
+Run subsets of tests (pytest -m regression)
+
+Skip or conditionally skip tests (@pytest.mark.skip, @pytest.mark.skipif)
+
+Parametrize tests (@pytest.mark.parametrize)
+
+Apply custom behavior (e.g., platform-specific, flaky tests, etc.)
