@@ -23,7 +23,7 @@ pipeline {
                             docker create --name temp-regression pytest-runner python -m pytest -m regression --html=reports/regression.html --self-contained-html
                             docker start -a temp-regression
                             docker cp temp-regression:/app/reports/regression.html reports/regression.html || echo "Report not found"
-                            
+                            docker rm temp-regression
                         '''
                     }
                 }
@@ -35,7 +35,7 @@ pipeline {
                             docker create --name temp-sanity pytest-runner python -m pytest -m sanity --html=reports/sanity.html --self-contained-html
                             docker start -a temp-sanity
                             docker cp temp-sanity:/app/reports/sanity.html reports/sanity.html || echo "Report not found"
-
+                            docker rm temp-sanity
                         '''
                     }
                 }
@@ -46,7 +46,7 @@ pipeline {
                             docker create --name temp-system pytest-runner python -m pytest -m parametrize --html=reports/parametrize.html --self-contained-html
                             docker start -a temp-system
                             docker cp temp-system:/app/reports/parametrize.html reports/parametrize.html || echo "Report not found"
-
+                            docker rm temp-system
                         '''
                     }
                 }
